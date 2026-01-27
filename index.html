@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calcolatrice PHP</title>
+</head>
+<body>
+
+<h1>Calcolatrice</h1>   
+
+    <form id="form" method="POST" action="/test/calcolatrice.php" onsubmit="validaForm(event)">
+        <input type="number" name="num1" step="any" required id="num1">
+        <select name="operator" id="operator">
+            <option value="add">+</option>
+            <option value="sub">-</option>
+            <option value="mul">*</option>
+            <option value="div">/</option>
+        </select>
+        <input type="number" name="num2" step="any" required id="num2">
+        <button type="submit" value="Calcola">Calcola</button>
+        <button type="reset" value="Cancella">Cancella</button>
+    </form>
+
+
+ <script src="./script.js"></script>
+
+
+
+</body>
+
+</html>
+
+
