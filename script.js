@@ -1,32 +1,32 @@
+const form = document.getElementById("form");
 
-    // document.onload = function () 
+function validaForm(ev) {
+    ev.preventDefault();
 
-    const form = document.getElementById("form");
-    
-    // // Controllo che il divisore non sia 0
-    function validaForm(ev) {
-        //ev.preventDefault();
-        //return false;
-        // alert("ciao");
-        let n2El = document.getElementById('num2');
-        let n2 = n2El.value
-        let opEl = document.getElementById('operator');
-        let op = opEl.value
-        
-        console.log(op);
-        console.log("prova");
-        
-        if (op == 'div' && n2 == 0) {
-            alert("Non puoi dividere per zero");
-            ev.preventDefault();
-            return false; 
-        }else{
-            
-            return true; 
-            
-        }
-        
-        //return false;
+    // Prendo i valori degli input
+    let num1 = document.getElementById('num1').value;
+    let num2 = document.getElementById('num2').value;
+    let op   = document.getElementById('operator').value;
+
+    // Controllo se il divisore è 0
+    if (op === 'div' && num2 == 0) {
+        alert("Non puoi dividere per zero");
+        return;
     }
-        
-    form.addEventListener("submit", validaForm);
+
+    // AJAX se spera funzioni
+    fetch("calcolatrice.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `num1=${num1}&num2=${num2}&operator=${op}`
+    })
+    .then(response => response.text())
+    .then(risultato => {
+        document.getElementById("output").innerText = risultato;
+    })
+    .catch(err => console.error("Errore: ", err));
+}
+
+form.addEventListener("submit", validaForm);

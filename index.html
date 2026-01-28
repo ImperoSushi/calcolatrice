@@ -8,7 +8,7 @@
 
 <h1>Calcolatrice</h1>   
 
-    <form id="form" method="POST" action="/test/calcolatrice.php" onsubmit="validaForm(event)">
+    <form id="form" method="POST" action="/test/calcolatrice.php">
         <input type="number" name="num1" step="any" required id="num1">
         <select name="operator" id="operator">
             <option value="add">+</option>
@@ -21,10 +21,17 @@
         <button type="reset" value="Cancella">Cancella</button>
     </form>
 
+    <div id="output">
+    
+
+
+    </div>
+
+
+
+
 
  <script src="./script.js"></script>
-
-
 
 </body>
 
