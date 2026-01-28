@@ -6,7 +6,7 @@ function validaForm(ev) {
     // Prendo i valori degli input
     let num1 = document.getElementById('num1').value;
     let num2 = document.getElementById('num2').value;
-    let op   = document.getElementById('operator').value;
+    let op = document.getElementById('operator').value;
 
     // Controllo se il divisore è 0
     if (op === 'div' && num2 == 0) {
