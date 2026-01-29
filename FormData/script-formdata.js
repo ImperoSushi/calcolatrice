@@ -14,23 +14,20 @@ function validaForm(ev) {
         return;
     }
 
+    // AJAX se spera che funzi FormData edition
+
     // Creazione oggetto
-    let idk = { 
-        num1: num1,
-        num2: num2, 
-        operator: op 
-    }; 
- 
+    let fd = new FormData();
+    fd.append("num1", num1);
+    fd.append("num2", num2);
+    fd.append("operator", op);
+    
+
     fetch("calcolatrice.php", {
-        method: "POST",
-        headers: {
-            //"Content-Type": "application/x-www-form-urlencoded"
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(idk)
+        method: "POST", 
+        body: fd
     })
     .then(response => {
-        //console.log("dgdgf");
         return response.json();
     })
     .then(result => {

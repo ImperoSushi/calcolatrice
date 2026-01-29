@@ -4,14 +4,13 @@
 <?php
     //echo "Starting my script" . "<br>";
 
+
     if (isset($_POST)) {
 
-        $content = file_get_contents("php://input");
-        $idk = json_decode($content, true);
 
-        $n1 = $idk['num1'];
-        $n2 = $idk['num2'];
-        $op = $idk['operator'];
+        $n1 = $_POST['num1'];
+        $n2 = $_POST['num2'];
+        $op = $_POST['operator'];
         
         $res = null;
         
